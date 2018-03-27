@@ -25,6 +25,11 @@ $ wget -q -O - --no-check-certificate https://raw.github.com/petervanderdoes/git
 // Instalasi untuk Windows
 ```
 
+### Referensi
+* [Rujukan GitFlow](https://danielkummer.github.io/git-flow-cheatsheet/index.id_ID.html)
+
+
+
 # 2. MARKDOWN
 ![Markdown Image](https://static.cdn-cdpl.com/wp-images/2014/05/codimio_markdown-image(700x350-crop).jpg)
 ### Apa Itu Markdown ?
@@ -186,3 +191,56 @@ console.log(`
 
 ### Referensi
 * [Javascript ES6 - Template Literal](https://degananda.com/javascript-es6-template-literal/)
+
+
+# 5. NAMED ARGUMENTS
+![Named Arguments Image](https://cdn-images-1.medium.com/max/800/1*3Pa_j7j3pDeqnIfsQb1HUA.png)
+
+### Apa itu ..args pada Javascript ?
+**Arguments** adalah nilai yang ditampung dari seluruh argumen yang dikirimkan kepada sebuah fungsi. Pada Javascript ES5 penulisan argument adalah **‘arguments’** sedangkan pada javascript ES6 penulisan disingkat menjadi **‘args’**.
+
+```java
+function sum (a,b){ //menerima 2 argumen
+   return a+b; 
+}
+// kita malah mengirim 3 argumen
+sum(2,3,4); // error
+```
+>Pada contoh fungsi diatas kita tidak diperkenankan mengirim argumen melebihi jumlah data yang kita daftarkan, dalam bahasa lain fungsi diatas bersifat statis. Padahal dalam kasus lain kita ingin argumen yang kita kirimkan ke fungsi dapat bersifat dinamis. Disini lah **`args`** berperan..
+
+```java
+function list (...args){
+   return console.log(...args); // Fahrizal Rama Riko
+}
+list("Fahrizal","Rama","Riko");
+// arg1
+```
+
+```java
+function list (...args){
+   return console.log(args); // ['Fahrizal', 'Rama', 'Riko'] tanpa "..."
+}
+list("Fahrizal","Rama","Riko");
+// arg2
+```
+
+```java
+function sum (a,...args){
+// kita bisa membaca argument dengan metode array
+  console.log(a+args[0]+args[1]); // 9
+}
+// 2 adalah argument yang deftar pada a, 
+// sedangkan 3,4 terdaftar ke 'args'
+sum(2,3,4);
+// arg3
+```
+
+#### Kesimpulan
+* Fungsi **‘…args’** adalah nilai yang ditampung dari argument yang dikirim ke sebuah fungsi meski argumen tersebut tidak didaftarkan.
+* Fungsi **‘…args’** adalah solusi jika kita ingin membuat fungsi yang inputan datanya bersifat dinamis.
+* Dengan menambahkan fungsi **‘…args’** kita bisa mencegah error.
+* Meskipun **‘…args’** bisa dibaca dengan metode array, namun ‘…args’ sebanarnya bukanlah array. [penting!]
+
+
+### Referensi
+* [Musliadi - Medium](https://medium.com/musliadi/memahami-konsep-args-pada-fungsi-javascript-untuk-pemula-cc500b76cc12)
